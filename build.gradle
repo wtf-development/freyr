@@ -1,6 +1,7 @@
 buildscript {
 	ext {
 		springBootVersion = "2.0.2.RELEASE"
+        springKafkaVersion = "2.1.7.RELEASE"
         lombokVersion = "1.16.22"
 	}
 	repositories {
@@ -52,10 +53,14 @@ dependencies {
     compileOnly "org.projectlombok:lombok:$lombokVersion"
     annotationProcessor "org.projectlombok:lombok:$lombokVersion"
 
+    compile "org.springframework.kafka:spring-kafka:$springKafkaVersion"
+
 	compile "org.springframework.boot:spring-boot-starter-data-redis-reactive"
 	//compile "org.springframework.boot:spring-boot-starter-security"
 	compile "org.springframework.boot:spring-boot-starter-web"
 	runtime "org.postgresql:postgresql"
 	testCompile "org.springframework.boot:spring-boot-starter-test"
-	//testCompile "org.springframework.security:spring-security-test"
+    testCompile "org.springframework.kafka:spring-kafka-test:$springKafkaVersion"
+
+    //testCompile "org.springframework.security:spring-security-test"
 }
